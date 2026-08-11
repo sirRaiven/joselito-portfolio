@@ -33,3 +33,15 @@ No additional runtime plugin is required for the résumé. The `Résumé` button
 ## Adding real graphic-design samples later
 
 The current project avoids inventing client work. Replace or expand the project visuals when approved images are available. The best place to add them is `SelectedWorkSection.vue` or by adding image fields to `usePortfolioData.ts`.
+
+## Résumé printing
+
+The portfolio uses `printd` for the Résumé button. The plugin prints only the dedicated `#resume-print-source` document and loads `/public/resume-print.css` inside the print frame. This keeps the résumé layout independent from the website styling and gives the browser a clean two-page A4 print/save-as-PDF preview.
+
+After copying this update into an existing project, run:
+
+```bash
+npm install
+```
+
+so the `printd` dependency is installed.

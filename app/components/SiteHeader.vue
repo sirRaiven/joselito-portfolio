@@ -10,8 +10,13 @@ const navigation = [
   { label: "Contact", href: "#contact" },
 ];
 
+const { $printResume } = useNuxtApp();
+
 const printResume = () => {
-  if (import.meta.client) window.print();
+  if (!import.meta.client) return;
+
+  const resume = document.getElementById("resume-print-source");
+  if (resume) $printResume(resume);
 };
 
 const closeMenu = () => {

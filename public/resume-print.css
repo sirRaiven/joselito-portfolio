@@ -1,0 +1,693 @@
+@page {
+  size: A4;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  color: #111111;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.resume-only,
+.resume-document {
+  display: block !important;
+}
+
+.resume-document {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.resume-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 210mm;
+  height: 297mm;
+  margin: 0 auto;
+  padding: 14mm 14mm 10mm;
+  background: #ffffff;
+  break-after: page;
+  page-break-after: always;
+  overflow: hidden;
+}
+
+.resume-page:last-child {
+  break-after: auto;
+  page-break-after: auto;
+}
+
+.resume-page-content {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.resume-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10mm;
+  padding-bottom: 6mm;
+  border-bottom: 2px solid #000000;
+}
+
+.resume-header::after {
+  content: "";
+  position: absolute;
+  top: 14mm;
+  right: 14mm;
+  width: 18mm;
+  height: 2.2mm;
+  background: #c6ff33;
+}
+
+.resume-identity,
+.resume-secondary-identity {
+  display: flex;
+  align-items: center;
+  gap: 4mm;
+}
+
+.resume-mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 13mm;
+  height: 13mm;
+  flex: 0 0 13mm;
+  border: 1.6px solid #000000;
+  background: #7d39eb;
+  color: #ffffff;
+  font-size: 10pt;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  overflow: hidden;
+}
+
+.resume-mark i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3.5mm;
+  height: 3.5mm;
+  background: #c6ff33;
+}
+
+.resume-mark-small {
+  width: 11mm;
+  height: 11mm;
+  flex-basis: 11mm;
+  font-size: 8.5pt;
+}
+
+.resume-mark-small i {
+  width: 3mm;
+  height: 3mm;
+}
+
+.resume-overline {
+  margin: 0 0 1mm;
+  color: #7d39eb;
+  font-size: 7.2pt;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.resume-header h1 {
+  margin: 0;
+  color: #000000;
+  font-size: 22pt;
+  line-height: 1.02;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+}
+
+.resume-role {
+  margin: 1.7mm 0 0;
+  color: #262626;
+  font-size: 10pt;
+  font-weight: 700;
+}
+
+.resume-role span {
+  padding: 0 1mm;
+  color: #7d39eb;
+  font-weight: 900;
+}
+
+.resume-contact {
+  display: grid;
+  gap: 2.1mm;
+  min-width: 59mm;
+  padding-top: 4mm;
+  color: #333333;
+  font-size: 8.2pt;
+  line-height: 1.25;
+  text-align: right;
+}
+
+.resume-contact > div {
+  display: grid;
+  gap: 0.5mm;
+}
+
+.resume-contact-label {
+  color: #7d39eb;
+  font-size: 6.8pt;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.resume-link {
+  word-break: break-all;
+}
+
+.resume-layout {
+  display: grid;
+  grid-template-columns: 58mm minmax(0, 1fr);
+  gap: 8mm;
+  margin-top: 6mm;
+}
+
+.resume-sidebar {
+  min-width: 0;
+  padding-right: 7mm;
+  border-right: 1px solid #d9d9d9;
+}
+
+.resume-main {
+  min-width: 0;
+}
+
+.resume-section {
+  margin: 0 0 5.2mm;
+}
+
+.resume-section:last-child {
+  margin-bottom: 0;
+}
+
+.resume-section > h2 {
+  position: relative;
+  margin: 0 0 2.8mm;
+  padding: 0 0 1.5mm;
+  border-bottom: 1px solid #cfcfcf;
+  color: #000000;
+  font-size: 8.8pt;
+  line-height: 1.1;
+  font-weight: 900;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+.resume-section > h2::before {
+  content: "";
+  display: inline-block;
+  width: 3mm;
+  height: 3mm;
+  margin-right: 1.7mm;
+  background: #c6ff33;
+  border: 0.8px solid #000000;
+  vertical-align: -0.35mm;
+}
+
+.resume-section p,
+.resume-section li {
+  color: #333333;
+  font-size: 8pt;
+  line-height: 1.4;
+}
+
+.resume-section p {
+  margin: 0;
+}
+
+.skill-group {
+  margin-bottom: 2.3mm;
+  padding: 2.5mm;
+  border: 1px solid #dddddd;
+  background: #fafafa;
+  break-inside: avoid;
+}
+
+.skill-group:last-child {
+  margin-bottom: 0;
+}
+
+.skill-group h3,
+.education-entry h3,
+.experience-entry h3,
+.recognition-card h3,
+.project-card h3,
+.activity-entry h3,
+.approach-grid h3 {
+  margin: 0;
+  color: #000000;
+  font-size: 8.8pt;
+  line-height: 1.25;
+  font-weight: 900;
+}
+
+.skill-group h3 {
+  color: #7d39eb;
+  font-size: 7.8pt;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+.skill-group p {
+  margin-top: 1mm;
+  font-size: 7.4pt;
+  line-height: 1.38;
+}
+
+.education-entry {
+  break-inside: avoid;
+}
+
+.entry-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 4mm;
+}
+
+.entry-date {
+  margin: 0;
+  color: #555555 !important;
+  font-size: 7.35pt !important;
+  line-height: 1.25 !important;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.entry-accent {
+  margin-top: 0.5mm !important;
+  color: #7d39eb !important;
+  font-size: 7.7pt !important;
+  font-weight: 800;
+}
+
+.entry-summary {
+  margin-top: 1.5mm !important;
+}
+
+.entry-list,
+.project-highlight-list {
+  margin: 1.6mm 0 0;
+  padding-left: 4mm;
+}
+
+.entry-list li + li,
+.project-highlight-list li + li {
+  margin-top: 0.75mm;
+}
+
+.entry-list li::marker,
+.project-highlight-list li::marker {
+  color: #7d39eb;
+}
+
+.compact-list {
+  margin-top: 1.6mm;
+}
+
+.focus-list {
+  display: grid;
+  gap: 1.3mm;
+}
+
+.focus-list span {
+  display: block;
+  padding: 1.7mm 2mm;
+  border-left: 2.4mm solid #7d39eb;
+  background: #f7f7f7;
+  color: #222222;
+  font-size: 7.5pt;
+  font-weight: 800;
+}
+
+.focus-list span:nth-child(even) {
+  border-left-color: #c6ff33;
+}
+
+.experience-entry {
+  padding-bottom: 3.2mm;
+  margin-bottom: 3.2mm;
+  border-bottom: 1px solid #e1e1e1;
+  break-inside: avoid;
+}
+
+.experience-entry:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+.experience-entry h3 {
+  font-size: 9.1pt;
+}
+
+.recognition-section {
+  margin-top: 4.5mm;
+  padding-top: 4.5mm;
+  border-top: 1.5px solid #000000;
+}
+
+.recognition-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5mm;
+}
+
+.recognition-card {
+  position: relative;
+  min-height: 28mm;
+  padding: 3mm;
+  border: 1px solid #000000;
+  break-inside: avoid;
+}
+
+.recognition-card:nth-child(2) {
+  background: #f5efff;
+}
+
+.recognition-card:nth-child(3) {
+  background: #f4ffd8;
+}
+
+.recognition-year {
+  margin-bottom: 1.3mm !important;
+  color: #7d39eb !important;
+  font-size: 7pt !important;
+  font-weight: 900;
+}
+
+.recognition-card h3 {
+  margin-bottom: 1.2mm;
+  font-size: 8pt;
+}
+
+.recognition-card p:last-child {
+  font-size: 7.1pt;
+  line-height: 1.34;
+}
+
+.resume-secondary-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 9mm;
+  padding-bottom: 5.5mm;
+  margin-bottom: 6mm;
+  border-bottom: 2px solid #000000;
+}
+
+.resume-secondary-header::after {
+  content: "";
+  position: absolute;
+  top: 14mm;
+  right: 14mm;
+  width: 18mm;
+  height: 2.2mm;
+  background: #7d39eb;
+}
+
+.resume-secondary-header h2 {
+  margin: 0;
+  color: #000000;
+  font-size: 15pt;
+  line-height: 1.15;
+  font-weight: 900;
+  letter-spacing: -0.018em;
+}
+
+.resume-secondary-header p:not(.resume-overline) {
+  max-width: 112mm;
+  margin: 1.5mm 0 0;
+  color: #444444;
+  font-size: 7.9pt;
+  line-height: 1.38;
+}
+
+.resume-secondary-name {
+  display: grid;
+  gap: 0.8mm;
+  padding-top: 4mm;
+  text-align: right;
+  color: #555555;
+  font-size: 7.5pt;
+  white-space: nowrap;
+}
+
+.resume-secondary-name strong {
+  color: #000000;
+  font-size: 8.3pt;
+}
+
+.page-two-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-section {
+  margin-bottom: 5mm;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3.5mm;
+}
+
+.project-card {
+  position: relative;
+  padding: 4mm;
+  border: 1.2px solid #000000;
+  background: #ffffff;
+  break-inside: avoid;
+}
+
+.project-card:nth-child(3) {
+  grid-column: 1 / -1;
+}
+
+.project-card-violet {
+  box-shadow: inset 0 3mm 0 #7d39eb;
+  padding-top: 6mm;
+}
+
+.project-card-lime {
+  box-shadow: inset 0 3mm 0 #c6ff33;
+  padding-top: 6mm;
+}
+
+.project-card-white {
+  box-shadow: inset 0 3mm 0 #000000;
+  padding-top: 6mm;
+}
+
+.project-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 3mm;
+  margin-bottom: 2mm;
+}
+
+.project-number,
+.project-year {
+  color: #555555;
+  font-size: 6.8pt;
+  font-weight: 900;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+.project-number {
+  color: #7d39eb;
+}
+
+.project-card h3 {
+  font-size: 10.2pt;
+}
+
+.project-subtitle {
+  margin-top: 0.5mm !important;
+  color: #7d39eb !important;
+  font-size: 7.7pt !important;
+  font-weight: 800;
+}
+
+.project-role {
+  margin-top: 1.2mm !important;
+  color: #000000 !important;
+  font-size: 7.1pt !important;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.035em;
+}
+
+.project-highlight-list {
+  margin-top: 1.8mm;
+}
+
+.project-highlight-list li {
+  font-size: 7.55pt;
+  line-height: 1.35;
+}
+
+.project-tools {
+  margin-top: 2mm !important;
+  padding-top: 1.7mm;
+  border-top: 1px solid #dddddd;
+  color: #666666 !important;
+  font-size: 6.9pt !important;
+  font-weight: 700;
+}
+
+.resume-page-two-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 6mm;
+  margin-top: 1mm;
+}
+
+.activity-entry {
+  padding-bottom: 3.2mm;
+  margin-bottom: 3.2mm;
+  border-bottom: 1px solid #dddddd;
+  break-inside: avoid;
+}
+
+.activity-entry:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.capability-panel {
+  padding: 3mm;
+  border: 1px solid #000000;
+  background: #c6ff33;
+}
+
+.capability-panel p {
+  color: #000000;
+  font-size: 7.6pt;
+  font-weight: 800;
+}
+
+.approach-grid {
+  display: grid;
+  gap: 2mm;
+  margin-top: 3mm;
+}
+
+.approach-grid article {
+  display: grid;
+  grid-template-columns: 7mm 1fr;
+  gap: 2mm;
+  padding: 2.5mm;
+  border: 1px solid #dddddd;
+  background: #fafafa;
+}
+
+.approach-grid article > span {
+  display: grid;
+  place-items: center;
+  width: 7mm;
+  height: 7mm;
+  background: #7d39eb;
+  color: #ffffff;
+  font-size: 6.5pt;
+  font-weight: 900;
+}
+
+.approach-grid h3 {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  font-size: 7.9pt;
+}
+
+.approach-grid p {
+  grid-column: 2;
+  margin-top: -1mm;
+  font-size: 7pt;
+  line-height: 1.34;
+}
+
+.resume-contact-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8mm;
+  margin-top: auto;
+  padding: 3.5mm 4mm;
+  border: 1.2px solid #000000;
+  background: #000000;
+  color: #ffffff;
+}
+
+.resume-contact-strip > div:first-child {
+  display: grid;
+  gap: 0.8mm;
+}
+
+.resume-contact-strip span {
+  font-size: 6.8pt;
+  color: #d9d9d9;
+}
+
+.resume-contact-strip strong {
+  color: #c6ff33;
+  font-size: 8.2pt;
+}
+
+.resume-contact-strip-right {
+  display: grid;
+  gap: 0.7mm;
+  text-align: right;
+}
+
+.resume-contact-strip-right span {
+  color: #ffffff;
+  font-size: 7.2pt;
+}
+
+.resume-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 4mm;
+  margin-top: 4mm;
+  padding-top: 2.5mm;
+  border-top: 1px solid #cccccc;
+  color: #666666;
+  font-size: 6.8pt;
+  line-height: 1.2;
+}
+
+@media screen {
+  body {
+    background: #d9d9d9;
+  }
+
+  .resume-page {
+    margin: 8mm auto;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
+  }
+}
